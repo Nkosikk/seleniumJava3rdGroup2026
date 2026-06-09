@@ -24,7 +24,7 @@ public class loginToNdosiWebsite {
 
     @Test(dependsOnMethods = "clickLoginTest")
     public void enterUsernameTest() {
-        driver.findElement(By.id("login-email1")).sendKeys("admin@gmail.com");
+        driver.findElement(By.id("login-email")).sendKeys("admin@gmail.com");
     }
 
     @Test(dependsOnMethods = "enterUsernameTest")
