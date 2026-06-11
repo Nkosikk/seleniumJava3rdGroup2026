@@ -13,6 +13,7 @@ public class BrowserFactory {
 
     public static WebDriver startBrowser(String browserType, String url){
 
+
         if (browserType.equalsIgnoreCase("chRome")){
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--incognito");
