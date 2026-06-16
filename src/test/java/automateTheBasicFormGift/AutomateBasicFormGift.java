@@ -27,7 +27,7 @@ public class AutomateBasicFormGift {
     }
     @Test (dependsOnMethods = "clickLoginTest")
     public void enterUsernameTest(){
-        driver.findElement(By.xpath("//input[@id = 'login-emaill']")).sendKeys("gcmakofane@gmail.com");
+        driver.findElement(By.xpath("//input[@id = 'login-email']")).sendKeys("gcmakofane@gmail.com");
     }
     @Test (dependsOnMethods = "enterUsernameTest")
     public void enterPasswordTest(){
@@ -60,10 +60,10 @@ public class AutomateBasicFormGift {
     public void expandBasicFormRequirementTets(){
         driver.findElement(By.xpath("//details[@id = 'basic-form-requirements']")).click();
     }
-//    @AfterTest
-//    public void closeBrowser(){
-//        driver.quit();
-//    }
+    @AfterTest
+    public void closeBrowser(){
+        driver.quit();
+    }
 
 
 }
