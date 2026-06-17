@@ -7,11 +7,11 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
-public class Browserfactory {
+public class BrowserFactory {
 
   public static WebDriver driver;
 
-    public static void StartBrowser(String browserType, String url){
+    public static void startBrowser(String browserType, String url){
 
         if (browserType.equalsIgnoreCase( "ChRome" ));{
             ChromeOptions options = new ChromeOptions();
