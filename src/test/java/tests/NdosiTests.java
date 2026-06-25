@@ -5,11 +5,6 @@ import utils.Base;
 
 public class NdosiTests extends Base {
 
-    @Test
-    public void contactUsTest() {
-      contactUsPage.clickContactUsButton();
-        contactUsPage.contactMethodsText();
-    }
 
     @Test
     public void loginTest()  {
@@ -19,5 +14,12 @@ public class NdosiTests extends Base {
         loginPage.clickLoginButton();
         landingPage.welcomeText();
     }
+
+    @Test
+    public void contactUsTest() {
+        contactUsPage.clickContactUsButton();
+        contactUsPage.contactMethodsText();
+    }
+
 
 }
