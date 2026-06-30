@@ -1,18 +1,24 @@
 package tests;
 
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import testData.ReadFromDatabase;
 import utils.Base;
 import utils.TakeScreenshots;
 
 public class NdosiTests extends Base {
 
+    @BeforeClass
+    public void setup() {
+        ReadFromDatabase.dbConnection();
+    }
 
     @Test
     public void loginTest() throws InterruptedException {
         loginPage.clickLoginMainButton();
-        loginPage.enterUsername("nkwanyana@gmail.com");
-        loginPage.enterPassword("#12345678");
+        loginPage.enterUsername(ReadFromDatabase.getUsername);
+        loginPage.enterPassword(ReadFromDatabase.getPassword);
         loginPage.clickLoginButton();
         landingPage.welcomeText();
         Thread.sleep(30);
