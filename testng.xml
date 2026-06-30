@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="ExtentReport.Listener"></listener>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="C:/AutomationClasses/2026/seleniumJava3rdGroup2026">
+        <classes>
+            <class name="tests.NdosiTests">
+                <methods>
+                    <include name="loginTest"/>
+                    <include name="contactUsTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

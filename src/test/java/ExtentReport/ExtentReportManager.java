@@ -3,14 +3,16 @@ package ExtentReport;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import org.testng.annotations.Test;
 
 import java.io.File;
 
 public class ExtentReportManager {
 
-    private static String reportFilePath = System.getProperty("user.dir") + "Report/NdosiAutomationReport.html";
+    private static String reportFilePath = System.getProperty("user.dir")+ "/Report/NdosiAutomationReport.html" ;
     private static ExtentReports extent;
     private static ExtentSparkReporter sparkReporter;
+
 
     public static ExtentReports extentReports(){
         extent = new ExtentReports();
