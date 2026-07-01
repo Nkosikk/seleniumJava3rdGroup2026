@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: selenium-report
-          path: Reports/
+          path: Reports/NdosiAutomationReport.html
 
 #   Please learn about the below block how to send email with attachment in GitHub Actions.
 #  You need to set up the secrets in your repository settings for EMAIL_USERNAME, EMAIL_PASSWORD, EMAIL_TO, and EMAIL_FROM.
