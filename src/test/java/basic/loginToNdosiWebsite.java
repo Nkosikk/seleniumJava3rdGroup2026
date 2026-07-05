@@ -15,42 +15,35 @@ public class loginToNdosiWebsite {
     @BeforeTest
     public void launchBrowser() {
         driver = new ChromeDriver();
-        driver.get("https://ndosisimplifiedautomation.vercel.app/");
+        driver.get( "https://ndosisimplifiedautomation.vercel.app/");
         driver.manage().window().maximize();
     }
 
-    @Test()
+    @Test
     public void clickLoginTest() throws InterruptedException {
-        driver.findElement(By.xpath("//*[@id=\"app-root\"]/nav/div[1]/div[3]/button")).click();
-    }
+        driver.findElement( By.xpath( "//*[@id=\"app-root\"]/nav/div[1]/div[3]/button" ) ).click();}
 
     @Test(dependsOnMethods = "clickLoginTest")
     public void enterUsernameTest() {
-        driver.findElement(By.id("login-email")).sendKeys("admin@gmail.com");
-    }
+        driver.findElement( By.id( "login-email" ) ).sendKeys( "enniemaneke@gmail.com" );}
 
     @Test(dependsOnMethods = "enterUsernameTest")
     public void enterPasswordTest() {
-        driver.findElement(By.id("login-password")).sendKeys("@12345678");
-    }
+        driver.findElement( By.id( "login-password" ) ).sendKeys( "Samke@2019" );}
 
     @Test(dependsOnMethods = "enterPasswordTest")
     public void clickSubmitButtonTest() throws InterruptedException {
-        driver.findElement(By.id("login-submit")).click();
-        Thread.sleep(2000);
+        driver.findElement( By.id( "login-submit" ) ).click();
+        Thread.sleep( 2000 );
     }
 
     @Test(dependsOnMethods = "clickSubmitButtonTest")
     public void verifyLoginSuccess() {
-        String welcomeText = driver.findElement(By.xpath("//*[@id=\"app-main-content\"]/section/div[1]/div[1]/h2/span[2]")).getText();
-        Assert.assertEquals(welcomeText, "back,");
+        String welcomeText = driver.findElement( By.xpath( "//*[@id=\"app-main-content\"]/section/div[1]/div[1]/h2/span[2]" ) ).getText();
+        Assert.assertEquals( welcomeText, "back," );
     }
-
 
     @AfterTest
-    public void closeBrowser() {
-        driver.quit();
-    }
-
+    public void closeBrowser(){ driver.quit(); }
 
 }

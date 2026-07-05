@@ -18,7 +18,7 @@ public class ContactUsPage {
         this.driver = driver;
     }
 
-    public void clickContactUsbutton(){
+    public void clickContactUsButton(){
         driver.findElement(ContactUs_xpath).click();
     }
 

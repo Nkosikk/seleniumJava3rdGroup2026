@@ -18,13 +18,13 @@ public class BrowserFactory {
             options.addArguments( "--incognito" );
             driver = new ChromeDriver();
 
-        } else if (browserType.equalsIgnoreCase( "FireFox" ));{
+        } if (browserType.equalsIgnoreCase( "FireFox" ));{
             driver = new FirefoxDriver();
 
-        } else if(browserType.equalsIgnoreCase( "Safari" ));{
+        }  if(browserType.equalsIgnoreCase( "Safari" ));{
              driver = new SafariDriver();
 
-        } else {
+        }  {
             driver = new EdgeDriver();
         }
 
