@@ -2,6 +2,7 @@ package utils;
 
 import org.openqa.selenium.support.PageFactory;
 
+import pages.LandingPage;
 import pages.LoginPage;
 
 public class Base {
@@ -16,4 +17,5 @@ public class Base {
     }
 
     public LoginPage loginPage = PageFactory.initElements(BrowserFactory.driver, LoginPage.class);
+    public LandingPage landingPage = PageFactory.initElements(BrowserFactory.driver, LandingPage.class);
 }
