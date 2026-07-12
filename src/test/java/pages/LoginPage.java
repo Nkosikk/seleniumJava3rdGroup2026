@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 
 import static org.openqa.selenium.support.locators.RelativeLocator.with;
 
+//This class is the Logging page which is doing the actioning of the logging in to the website.
+
 public class LoginPage {
 
     WebDriver driver;
@@ -13,6 +15,7 @@ public class LoginPage {
     By loginMainButton_xpath = By.xpath("//div[@class='nav-user-section']");
     By username_id = By.id("login-email");
     By loginButton_id = By.id("login-submit");
+
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;

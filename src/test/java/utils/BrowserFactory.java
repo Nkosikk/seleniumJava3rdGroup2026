@@ -8,6 +8,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+//Controls launching of the browers, the BrowserFactroy Class
+
 public class BrowserFactory {
 
     public static WebDriver driver;
@@ -16,10 +18,11 @@ public class BrowserFactory {
 
 
         if (browserType.equalsIgnoreCase("chRome")){
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--incognito");
-            options.addArguments("--headless=new");
-            driver = new ChromeDriver(options);
+//            ChromeOptions options = new ChromeOptions();
+//            options.addArguments("--incognito");
+//            options.addArguments("--headless=new");
+//            driver = new ChromeDriver(options);
+            driver = new ChromeDriver();
 
         } else if (browserType.equalsIgnoreCase("fireFox")){
             driver = new FirefoxDriver();

@@ -1,11 +1,14 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import testData.ReadFromDatabase;
 import utils.Base;
 import utils.TakeScreenshots;
+
+//This class NdosiTests is not doing the actioning but rather the calling/initiating of the actioning pages.
 
 public class NdosiTests extends Base {
 
@@ -32,6 +35,14 @@ public class NdosiTests extends Base {
         Thread.sleep(60);
         TakeScreenshots.takeSnapshot(driver, "contactUsScreen");
     }
+
+    @Test
+    public void purchaseAndVerifyInvoiceTest() throws InterruptedException {
+        InventoryPage.purchasePhone();
+        Assert.assertTrue(InventoryPage.getToastMessage().contains("Success"));
+        Thread.sleep(60);
+    }
+
 
     @AfterClass
     public void tearDown() {

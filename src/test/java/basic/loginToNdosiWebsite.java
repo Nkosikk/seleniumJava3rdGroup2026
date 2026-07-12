@@ -10,6 +10,9 @@ import org.testng.annotations.Test;
 
 public class loginToNdosiWebsite {
 
+    //This was just an example class of doing everything in one place, launching of the browser and actioning pages.
+    // instead of using a framework where everything is seperated or loosely coupled so we can reuse some of the classes
+    //anywhere we want.
     WebDriver driver;
 
     @BeforeTest
