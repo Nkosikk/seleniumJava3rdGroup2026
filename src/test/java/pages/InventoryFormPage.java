@@ -1,6 +1,7 @@
 package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,19 +15,19 @@ public class InventoryFormPage {
     public  InventoryFormPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
     }
+
+    // ===================== LOCATORS =====================
 
     By deviceType_id = By.id("deviceType");
     By brand_id = By.id("brand");
-    By storage_id = By.id("storage");
     By color_id = By.id("color");
     By quantity_id = By.id("quantity");
     By address_id = By.id("address");
+    By discountCode = By.id("discount-code");
 
     By nextButton_xpath = By.xpath("//button[contains(text(),'Next')]");
-    By expressShipping = By.xpath("//label[contains(text(),'Express Shipping')]");
-    By warranty = By.xpath("//label[contains(text(),'1yr Warranty')]");
-    By discountCode = By.xpath("//input[contains(@placeholder,'discount')]");
     By applyDiscount = By.xpath("//button[contains(text(),'Apply')]");
     By confirmPurchase = By.xpath("//button[contains(text(),'Confirm Purchase')]");
     By learnButton_xpath= By.xpath("//div[@id='app-root']/nav/div/div[2]/div/button/span[3]");
@@ -34,10 +35,37 @@ public class InventoryFormPage {
     By webAutomationAdvanceBtn_xpath = By.xpath("//*[@id=\"tab-btn-web\"]");
 
 
+
+    // ===================== DYNAMIC METHODS =====================
+
+    private void clickByDynamicId(String prefix, String value) {
+
+        String locator = prefix + value.toLowerCase();
+
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id(locator)));element.click();
+    }
+
+    public void selectShippingMethod(String shipping) {
+
+        clickByDynamicId("shipping-option-", shipping);
+    }
+
+    public void selectWarranty(String warranty) {
+
+        clickByDynamicId("warranty-option-", warranty);
+    }
+
+   // public void selectStorage(String storage) {
+
+        ///wait.until(ExpectedConditions.elementToBeClickable(By.id("storage-" + storage))).click();
+    //}
+
+  // ===================== BUSINESS LOGIC =====================
+
     public void purchasePhone() throws InterruptedException {
 
-
         driver.findElement(learnButton_xpath).click();
+        Thread.sleep(2000);
         driver.findElement(learningMaterialBtn_xpath).click();
         driver.findElement(webAutomationAdvanceBtn_xpath).click();
         new Select(driver.findElement(deviceType_id)).selectByVisibleText("Phone");
@@ -55,20 +83,27 @@ public class InventoryFormPage {
         Thread.sleep(2000);
         driver.findElement(nextButton_xpath).click();
         Thread.sleep(2000);
-        driver.findElement(expressShipping).click();
+
+        //Dynamic Shipping
+        selectShippingMethod("express");
         Thread.sleep(5000);
-        driver.findElement(warranty).click();
+
+        //Dynamic Warranty
+        selectWarranty("1yr");
+
         driver.findElement(applyDiscount).sendKeys("SAVE10");
-        driver.findElement(applyDiscount).click();
-        driver.findElement(confirmPurchase).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(discountCode)).sendKeys("SAVE10");
+        wait.until(ExpectedConditions.elementToBeClickable(applyDiscount)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(confirmPurchase)).click();
 
     }
 
-    public String getToastMessage() throws InterruptedException {
+    public String getToastMessage() {
+        By toastTitle = By.xpath("//div[@id='purchase-success-toast']//h4");
 
         return wait.until(
-                ExpectedConditions.visibilityOfElementLocated(
-                        By.className("Toastify__toast-body"))).getText();
+                ExpectedConditions.visibilityOfElementLocated(toastTitle)
+        ).getText().trim();
     }
 
 
