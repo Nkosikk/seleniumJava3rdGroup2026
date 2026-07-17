@@ -36,12 +36,6 @@ public class NdosiTests extends Base {
         TakeScreenshots.takeSnapshot(driver, "contactUsScreen");
     }
 
-    //@Test
-    //public void purchaseAndVerifyInvoiceTest() throws InterruptedException {
-        //InventoryPage.purchasePhone();
-        //Assert.assertTrue(InventoryPage.getToastMessage().contains("Order Successful!"));
-
-   // }
     @Test
     public void purchaseAndVerifyInvoiceTest() throws InterruptedException {
         InventoryPage.purchasePhone();
@@ -52,6 +46,11 @@ public class NdosiTests extends Base {
                 "Expected toast to contain 'order successful' but got: [" + actualMessage + "]"
         );
 
+        Thread.sleep(3000);
+    }
+    @Test
+    public void viewInvoiceTest() throws InterruptedException {
+        InventoryPage.viewInvoice();
         Thread.sleep(3000);
     }
 

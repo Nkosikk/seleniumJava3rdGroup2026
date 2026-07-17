@@ -26,6 +26,8 @@ public class InventoryFormPage {
     By quantity_id = By.id("quantity");
     By address_id = By.id("address");
     By discountCode = By.id("discount-code");
+    By invoice_id = By.id("view-history-btn");
+    //By dynamicInvoicePanelHistory_id = By.id("view-invoice-INV-1784287148493");
 
     By nextButton_xpath = By.xpath("//button[contains(text(),'Next')]");
     By applyDiscount = By.xpath("//button[contains(text(),'Apply')]");
@@ -55,10 +57,6 @@ public class InventoryFormPage {
         clickByDynamicId("warranty-option-", warranty);
     }
 
-   // public void selectStorage(String storage) {
-
-        ///wait.until(ExpectedConditions.elementToBeClickable(By.id("storage-" + storage))).click();
-    //}
 
   // ===================== BUSINESS LOGIC =====================
 
@@ -106,5 +104,8 @@ public class InventoryFormPage {
         ).getText().trim();
     }
 
+    public void viewInvoice(){
+        driver.findElement( invoice_id ).click();
+    }
 
 }
